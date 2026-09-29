@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit DeMarco — Bay Area Organizing, Decluttering &amp; Moves</title>
+<meta name="description" content="Kit DeMarco brings calm, considered order to Bay Area homes — organizing, decluttering, packing and unpacking for moves, and custom projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   COLORS & FONTS — change these to restyle the whole site
+   ========================================================= */
+:root{
+  --cream:#F8F6F1;        /* main background */
+  --cream-2:#F9F7F2;      /* section background */
+  --blue-wash:rgba(214,228,234,.3); /* pale blue sections */
+  --ink:#2B3A45;          /* main text */
+  --ink-70:rgba(43,58,69,.7);
+  --ink-50:rgba(43,58,69,.5);
+  --primary:#4B6E7C;      /* buttons, accents */
+  --accent:#D7E5EB;       /* light blue accent */
+  --border:#D3DEE3;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",ui-sans-serif,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.05;margin:0}
+h1{font-size:clamp(3rem,7vw,6rem)}
+h2{font-size:clamp(2.2rem,4vw,3rem)}
+h3{font-size:1.6rem}
+p{margin:0 0 1em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+.kicker{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ink-50);margin-bottom:24px}
+section{padding:clamp(80px,11vw,140px) 0}
+.blue{background:var(--blue-wash)}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;height:80px;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(248,246,241,.92);backdrop-filter:blur(8px);border-color:var(--border)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+.logo{letter-spacing:.3em;font-size:.95rem;font-weight:400}
+nav{display:flex;align-items:center;gap:36px}
+nav a{font-size:.88rem;color:var(--ink-70);transition:color .2s}
+nav a:hover{color:var(--ink)}
+.pill{border:1px solid var(--primary);border-radius:999px;padding:10px 22px;color:var(--ink)!important;transition:background .3s,color .3s}
+.pill:hover{background:var(--primary);color:#fff!important}
+.menu-btn{display:none;background:none;border:0;font:inherit;color:var(--ink);cursor:pointer;letter-spacing:.2em;font-size:.75rem}
+@media(max-width:900px){
+  nav{position:fixed;inset:80px 0 auto 0;background:var(--cream);flex-direction:column;gap:22px;padding:30px;border-bottom:1px solid var(--border);display:none}
+  nav.open{display:flex}
+  .menu-btn{display:block}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;transform:scale(1.08);animation:heroZoom 2.4s ease-out forwards}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(248,246,241,.88) 0%,rgba(248,246,241,.55) 45%,rgba(248,246,241,.1) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{margin-bottom:28px}
+.hero p{max-width:460px;color:var(--ink-70)}
+.hero .cta{display:inline-flex;align-items:center;gap:14px;margin-top:18px;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px}
+.hero .cta span{transition:transform .3s}
+.hero .cta:hover span{transform:translateX(6px)}
+@keyframes heroZoom{to{transform:scale(1)}}
+
+/* ---------- services ---------- */
+#services{background:var(--cream-2)}
+.split-head{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;margin-bottom:80px}
+.split-head p{color:var(--ink-70);font-size:.95rem;margin:0}
+.svc-list{display:grid;grid-template-columns:1fr 1fr;column-gap:80px}
+.svc{display:grid;grid-template-columns:50px 1fr;padding:28px 0;border-top:1px solid var(--border)}
+.svc .n{font-size:.75rem;color:var(--ink-50);padding-top:8px}
+.svc h3{margin-bottom:6px}
+.svc p{font-size:.88rem;color:var(--ink-70);margin:0}
+.svc-foot{text-align:center;max-width:520px;margin:90px auto 0;color:var(--ink-70);font-size:.95rem}
+@media(max-width:800px){.split-head,.svc-list{grid-template-columns:1fr}}
+
+/* ---------- how I work ---------- */
+.steps{margin-top:70px}
+.step{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:40px 0;border-top:1px solid var(--border);max-width:820px}
+.step .n{font-family:var(--serif);font-size:3rem;line-height:1;color:var(--primary);opacity:.6}
+.step h3{font-size:2rem;margin-bottom:10px}
+.step p{color:var(--ink-70);max-width:520px}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.3;text-align:center;max-width:820px;margin:100px auto 0}
+@media(max-width:600px){.step{grid-template-columns:1fr}}
+
+.kit-strip{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:820px;margin:70px auto 0}
+.kit-strip img{width:100%;aspect-ratio:2/3;object-fit:cover}
+/* ---------- portfolio ---------- */
+.gallery{columns:3 280px;column-gap:24px;margin-top:70px}
+figure{margin:0 0 34px;break-inside:avoid}
+figure .ph{overflow:hidden;background:var(--accent)}
+figure img{width:100%;object-fit:cover;transition:transform 1.2s ease}
+figure:hover img{transform:scale(1.04)}
+figure .ph img{height:auto}
+figcaption{padding-top:14px}
+figcaption small{display:block;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-50);margin-bottom:4px}
+figcaption span{font-family:var(--serif);font-size:1.4rem}
+
+/* ---------- about ---------- */
+#about{background:var(--cream-2)}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.about-media{position:relative;padding:0 12% 12% 0}
+.about .portrait{aspect-ratio:463/640;object-fit:cover;width:100%}
+.about .inset{position:absolute;right:0;bottom:0;width:42%;aspect-ratio:1;object-fit:cover;object-position:50% 30%;border:8px solid var(--cream-2);box-shadow:0 20px 40px rgba(43,58,69,.15)}
+.about h2{margin-bottom:28px}
+.about p{color:var(--ink-70)}
+.sig{display:flex;align-items:center;gap:18px;margin-top:34px;padding-top:28px;border-top:1px solid var(--border)}
+.sig img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+.sig em{font-family:var(--serif);font-size:1.35rem;display:block}
+.sig small{font-size:.7rem;letter-spacing:.3em;color:var(--ink-50)}
+@media(max-width:850px){.about{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+#contact{background:var(--cream-2);text-align:center}
+#contact > .wrap > p{color:var(--ink-70);max-width:460px;margin:20px auto 0}
+form{max-width:620px;margin:60px auto 0;text-align:left;display:grid;gap:28px}
+label{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-50);display:block;margin-bottom:6px}
+input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--border);padding:10px 0;font:inherit;color:var(--ink);outline:none;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{border-color:var(--primary)}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+button.submit{justify-self:center;margin-top:10px;background:var(--primary);color:#fff;border:0;border-radius:999px;padding:15px 40px;font:400 .8rem var(--sans);letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+button.submit:hover{background:var(--ink)}
+@media(max-width:600px){.row2{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--cream-2);border-top:1px solid var(--border);padding:80px 0 40px;font-size:.88rem;color:var(--ink-70)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.foot .name{font-family:var(--serif);font-size:2rem;color:var(--ink);margin-bottom:12px}
+.foot h4{font-size:.68rem;letter-spacing:.3em;color:var(--ink-50);font-weight:400;margin:0 0 16px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.foot a:hover{color:var(--ink)}
+.bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:70px;padding-top:24px;border-top:1px solid var(--border);font-size:.78rem}
+@media(max-width:750px){.foot{grid-template-columns:1fr}}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero img.bg{animation:none;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header id="header">
+  <div class="wrap">
+    <a class="logo" href="#top">KIT DEMARCO</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">MENU</button>
+    <nav id="nav">
+      <a href="#services">Services</a>
+      <a href="#how-i-work">How I Work</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="pill" href="#contact">Book a Discovery Call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <img class="bg" src="photos/sideboard.jpg" alt="A styled sideboard with art and candles">
+  <div class="wrap">
+    <div class="kicker reveal">Home Organizer · Creative Solutions</div>
+    <h1 class="reveal">From chaos into<br>calm order.</h1>
+    <p class="reveal">Let me help you take your chaos into calm order — organizing, decluttering, and moves, with creative solutions for every space in your home.</p>
+    <a class="cta reveal" href="#contact">Begin the Transformation <span>→</span></a>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <div class="kicker reveal">What I Do</div>
+        <h2 class="reveal">Every space, considered.</h2>
+      </div>
+      <p class="reveal">A home organizer specializing in creative solutions — from kitchens and garages to moves, files, and the spaces in between.</p>
+    </div>
+
+    <div class="svc-list">
+      <!-- To add a service, copy one <div class="svc">…</div> block -->
+      <div class="svc reveal"><span class="n">01</span><div><h3>Packing for a move</h3><p>Calm, labeled, protected — every box a map of the home it came from.</p></div></div>
+      <div class="svc reveal"><span class="n">02</span><div><h3>Unpacking after a move</h3><p>Settle in with intention, organized from day one.</p></div></div>
+      <div class="svc reveal"><span class="n">03</span><div><h3>Pet spaces</h3><p>Feeding, toys, and gear — order for the four-legged family.</p></div></div>
+      <div class="svc reveal"><span class="n">04</span><div><h3>Kids spaces</h3><p>Play, crafts, and clothes at kid-height.</p></div></div>
+      <div class="svc reveal"><span class="n">05</span><div><h3>Kitchen</h3><p>Pantry, counters, and the daily flow of meals.</p></div></div>
+      <div class="svc reveal"><span class="n">06</span><div><h3>Bathroom</h3><p>Calm counters, smart storage.</p></div></div>
+      <div class="svc reveal"><span class="n">07</span><div><h3>Garage</h3><p>From drop zone to working space.</p></div></div>
+      <div class="svc reveal"><span class="n">08</span><div><h3>Office &amp; study</h3><p>A desk that supports focus and productivity.</p></div></div>
+      <div class="svc reveal"><span class="n">09</span><div><h3>Organizing files</h3><p>Paperwork, bills, and records — tamed.</p></div></div>
+      <div class="svc reveal"><span class="n">10</span><div><h3>Downsizing</h3><p>Lighter living, gently handled.</p></div></div>
+      <div class="svc reveal"><span class="n">11</span><div><h3>Dining &amp; living rooms</h3><p>Rooms made for gathering, not storing.</p></div></div>
+      <div class="svc reveal"><span class="n">12</span><div><h3>Decorating children's parties</h3><p>Details handled, celebration ahead.</p></div></div>
+      <div class="svc reveal"><span class="n">13</span><div><h3>Simple flower arrangements</h3><p>Fresh, unfussy blooms for gatherings.</p></div></div>
+      <div class="svc reveal"><span class="n">14</span><div><h3>Home reset visits</h3><p>Weekly, monthly, or quarterly tune-ups.</p></div></div>
+    </div>
+
+    <p class="svc-foot reveal">Whatever the space, the approach is the same — sustainable, intentional, and built around the way you live.</p>
+  </div>
+</section>
+
+<!-- ======================= HOW I WORK ======================= -->
+<section id="how-i-work" class="blue">
+  <div class="wrap">
+    <div class="kicker reveal">How I Work</div>
+    <h2 class="reveal">A guided path from purge to power.</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><div><h3>Purge</h3><p>We let go of what's truly unnecessary — gently. What can go on to a new life is sourced and donated responsibly.</p></div></div>
+      <div class="step reveal"><div class="n">02</div><div><h3>Organize</h3><p>Everything that stays gets a home of its own: smart categorization, harmony, and flow built around your lifestyle.</p></div></div>
+      <div class="step reveal"><div class="n">03</div><div><h3>Personalize</h3><p>I find new uses for “old” existing things — thrifting and sustainable sourcing wherever possible, always in step with your aesthetic.</p></div></div>
+      <div class="step reveal"><div class="n">04</div><div><h3>Power</h3><p>Your space starts working for you: beautiful, functional, strategic, and family-friendly.</p></div></div>
+      <div class="step reveal"><div class="n">05</div><div><h3>Your space back</h3><p>Your way. You'll do more with your space — in a way that suits your style, your life, and your personality.</p></div></div>
+    </div>
+    <p class="quote reveal">“Let me help you use your space in a way that suits you — your style, your life, your personality.”</p>
+  </div>
+</section>
+
+<!-- ======================= PORTFOLIO ======================= -->
+<!-- To change a photo: drop a new file in the photos folder and update src="photos/...".
+     To add a photo: copy a <figure>…</figure> block. -->
+<section id="portfolio" class="blue">
+  <div class="wrap">
+    <div class="kicker reveal">The Archive of Order</div>
+    <h2 class="reveal">Spaces, after the breath settles.</h2>
+    <p class="reveal" style="color:var(--ink-70);max-width:520px;margin-top:20px">A look inside real, organized spaces — each one a study in calm, light, and the quiet logic of a place restored.</p>
+
+    <div class="gallery">
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/stair-gallery.jpg" alt="The Stair Gallery"></div><figcaption><small>Family photos, led up the stairs</small><span>The Stair Gallery</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/around-the-hearth.jpg" alt="Around the Hearth"></div><figcaption><small>Living room built-ins</small><span>Around the Hearth</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/reading-nook.jpg" alt="The Reading Nook"></div><figcaption><small>Built-ins &amp; a window bench</small><span>The Reading Nook</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/jewelry-edit.jpg" alt="The Jewelry Edit"></div><figcaption><small>Personalize · Every piece in its place</small><span>The Jewelry Edit</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/shelves-considered.jpg" alt="Shelves, Considered"></div><figcaption><small>A styled vignette</small><span>Shelves, Considered</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/kids-art-wall.jpg" alt="The Kids' Art Wall"></div><figcaption><small>Art, displayed with pride</small><span>The Kids' Art Wall</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/layered-console.jpg" alt="The Layered Console"></div><figcaption><small>Mirror, flowers, calm</small><span>The Layered Console</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/piano-corner.jpg" alt="The Piano Corner"></div><figcaption><small>Art &amp; light</small><span>The Piano Corner</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/command-central.jpg" alt="Command Central"></div><figcaption><small>Entry · Alarms &amp; eyewear, sorted</small><span>Command Central</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/lets-go.jpg" alt="Let's Go!"></div><figcaption><small>Pet corner · Leashes &amp; harnesses</small><span>Let's Go!</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/sideboard.jpg" alt="The Sideboard"></div><figcaption><small>Dining room, curated</small><span>The Sideboard</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/console-edit.jpg" alt="The Console Edit"></div><figcaption><small>Entry · Styled &amp; ready</small><span>The Console Edit</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/family-grid.jpg" alt="The Family Grid"></div><figcaption><small>Cube storage · Everything in its place</small><span>The Family Grid</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="https://media.base44.com/images/public/6ab96dd1a95cf43b434234e2/442e19ea6_generated_a8bfdbf9.jpg/v1/fill/w_760,h_563,al_c,q_85,enc_webp,quality_auto/442e19ea6_generated_a8bfdbf9.webp" alt="The Pantry, in Jars"></div><figcaption><small>Kitchen · Dry goods</small><span>The Pantry, in Jars</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/positive-thought.jpg" alt="One Small Positive Thought"></div><figcaption><small>Details that stay</small><span>One Small Positive Thought</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/bench-of-pillows.jpg" alt="The Bench of Pillows"></div><figcaption><small>Window seat, layered comfort</small><span>The Bench of Pillows</span></figcaption></figure>
+      <figure class="reveal"><div class="ph"><img loading="lazy" src="photos/shelf-by-shelf.jpg" alt="Shelf by Shelf"></div><figcaption><small>Books, benched &amp; styled</small><span>Shelf by Shelf</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-media reveal">
+      <img class="portrait" src="photos/kit-portrait.jpg" alt="Kit DeMarco">
+      <img class="inset" src="photos/kit-reaching.jpg" alt="Kit organizing a bookshelf">
+    </div>
+    <div>
+      <div class="kicker reveal">The Organizer</div>
+      <h2 class="reveal">I'll help you bring happiness, peace, and calm to your space.</h2>
+      <p class="reveal">I'm Kit DeMarco, a home organizer specializing in creative solutions. I'll guide you through the purge process, help you create a vision — and bring that vision to reality. Focused on solutions, not problems.</p>
+      <p class="reveal">I love finding new uses for “old” existing things. I'll listen to your needs, work with your aesthetic, and source solutions sustainably — thrifting included — wherever possible. My promise is to work hard, resulting in a solution you'll love.</p>
+      <p class="reveal">Need a painter, handyman, junk hauler, or another contractor along the way? I have trusted people I'll happily connect you with.</p>
+      <div class="sig reveal">
+        <div><em>"A calm home is the beginning of a calm life."</em><small>KIT DEMARCO</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<!-- On Netlify, form submissions show up in your Netlify dashboard (Forms tab).
+     You can turn on email alerts there so Kit gets each request. -->
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker reveal">The Consultation Gateway</div>
+    <h2 class="reveal">Let's begin a conversation.</h2>
+    <p class="reveal">Share a few details and Kit will personally reach out to schedule your discovery call.</p>
+    <form class="reveal" name="contact" method="POST" data-netlify="true" action="/thanks.html">
+      <input type="hidden" name="form-name" value="contact">
+      <div class="row2">
+        <div><label for="name">Your name</label><input id="name" name="name" required></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+      </div>
+      <div><label for="service">Service of interest</label>
+        <select id="service" name="service">
+          <option>Organizing / decluttering</option>
+          <option>Packing for a move</option>
+          <option>Unpacking after a move</option>
+          <option>Downsizing</option>
+          <option>Home reset visits</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div><label for="details">A few details</label><textarea id="details" name="details"></textarea></div>
+      <button class="submit" type="submit">Request Discovery Call</button>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="name">Kit DeMarco</div>
+        <p style="max-width:340px">Home organizing with creative solutions — organizing, decluttering, and moves, handled with a quiet hand.</p>
+      </div>
+      <div>
+        <h4>EXPLORE</h4>
+        <ul><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul><li><a href="mailto:hello@kitdemarco.com">hello@kitdemarco.com</a></li><li><a href="tel:5105550100">(510) 555-0100</a></li><li>Serving the San Francisco Bay Area</li></ul>
+      </div>
+    </div>
+    <div class="bottom"><span>© 2026 Kit DeMarco. All rights reserved.</span><span>Designed with intention in the Bay Area.</span></div>
+  </div>
+</footer>
+
+<script>
+// header background on scroll
+const header=document.getElementById('header');
+const onScroll=()=>header.classList.toggle('scrolled',scrollY>30);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// mobile menu
+const nav=document.getElementById('nav');
+document.getElementById('menuBtn').onclick=()=>nav.classList.toggle('open');
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+// fade-in on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el);});
+</script>
+</body>
+</html>
